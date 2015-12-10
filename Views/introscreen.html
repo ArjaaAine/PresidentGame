@@ -1,0 +1,47 @@
+﻿<div class="row introScreen" ng-show="game.data.init.isFirstTime === true">
+    <div class="">
+        <div id="IntroScreen">
+            <h3>
+                Welcome Citizen!
+            </h3>
+            <span class="margin-top-20 row">
+                Tired of the direction the country is headed into. The patriot in you decides to do something about it...
+            </span>
+            <hr />
+            <div class="form-horizontal">
+                <div class="col-sm-12 form-group" ng-class="game.validation.initPartySelection === false ? 'has-error':'' ">
+                    <ui-select ng-model="game.baseStats.selectedParty" theme="bootstrap">
+                        <ui-select-match placeholder="Select your party...">
+                            {{$select.selected.name}}
+                        </ui-select-match>
+                        <ui-select-choices repeat="party in game.lookup.parties | filter: $select.search">
+                            <div ng-bind-html="party.name | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                    <span ng-class="game.baseStats.selectedParty.name !=='Republican Party' ? 'text-danger': 'text-success'">
+                        {{game.baseStats.selectedParty.selectionText}}
+                    </span>
+                </div>
+                <div class="col-sm-12 form-group" ng-class="game.validation.initLeaderName === false ? 'has-error':'' ">
+                        <input type="text" class="form-control" ng-model="game.baseStats.leaderName" placeholder=" Give yourself a new name befitting a leader of your stature.." />
+                </div>
+            </div>
+
+            <div class="has-error margin-top-20 col-md-12" ng-show="(game.validation.initLeaderName && game.validation.initPartySelection) === false">
+                <p class="control-label">
+                    Give us something to work with here.. will ya?
+                </p>
+            </div>
+
+            <div class="margin-top-20 pull-right">
+                <button type="button" class="btn btn-info" ng-click="game.startGame()">
+                    Start!
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Leave this blank, this is what sets the background to black.-->
+<div class="fade_overlay" ng-show="game.data.init.isFirstTime === true">
+
+</div>
