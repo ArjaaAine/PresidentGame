@@ -20,7 +20,6 @@ wtpApp.controller(
         }
 
         game.baseStats = {
-            selectedParty: {},
             leaderName: ''
         }
 
@@ -37,5 +36,22 @@ wtpApp.controller(
                 selectionText: 'Are you a freeloading socialist? Select the true party for the patriots!'
             }
         ]
+
+        game.startGame = function () {
+            if (game.baseStats.leaderName.length === 0 ) {
+                game.validation.initLeaderName = false;
+            } else {
+                game.validation.initLeaderName = true;
+            }
+
+            if (!game.baseStats.selectedParty) {
+                game.validation.initPartySelection = false;
+            } else if (game.baseStats.selectedParty.name !== 'Republican Party') {
+                game.validation.initPartySelection = false;
+
+            } else {
+                game.validation.initPartySelection = true;
+            }
+        };
 
     });
