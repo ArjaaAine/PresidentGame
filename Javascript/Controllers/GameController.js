@@ -44,11 +44,7 @@ wtpApp.controller(
             initPartySelection: true
         }
         game.baseStats = {
-            leaderName: 'Test',
-            selectedParty: {
-                name: 'Republican Party',
-                selectionText: 'Congrats! You selected the party worthy of a patriot!'
-            }
+            leaderName: ''
         }
 
         game.lookup = {
