@@ -1,2 +1,9 @@
-﻿body {
+﻿.list-group-item:hover {
+    background-color: #888 !important;
+    color: white !important;
+}
+
+/*Custom Controls*/
+.clickable {
+    cursor: pointer;
 }

@@ -1,0 +1,23 @@
+﻿<div class="row introScreen" ng-show="!game.data.init.isFirstTime">
+    <div id="SituationScreen">
+        <h3>
+            {{game.data.activeSituation.SituationHeader}}
+            <span class="pull-right">
+                <btn class="btn btn-danger" ng-click="game.resetGame()">Reset</btn>
+            </span>
+        </h3>
+        <span class="margin-top-20 row">
+            {{game.data.activeSituation.SituationText}}
+        </span>
+        <hr />
+        <div class="form-horizontal">
+            <div class="list-group">
+                <a href="#" class="list-group-item clickableArea clickable" ng-repeat="choice in game.data.activeSituation.choices"
+                   ng-click="game.selectedChoice(choice.ResultSituationId, choice.ChoiceId)">
+                    {{choice.ChoiceText}}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
